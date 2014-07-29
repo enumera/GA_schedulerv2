@@ -15,6 +15,7 @@ class CohortsController < ApplicationController
   # GET /cohorts/1.json
   def show
     @cohort = Cohort.find(params[:id])
+    @tutorials = @cohort.tutorials
 
     respond_to do |format|
       format.html # show.html.erb
@@ -42,6 +43,16 @@ class CohortsController < ApplicationController
   # POST /cohorts.json
   def create
     @cohort = Cohort.new(params[:cohort])
+    
+  
+   binding.pry
+    Lesson.all.each do |lesson|
+      t1 = Tutorial.create(name: lesson.name, status_id: lesson.status_id)
+      @cohort.tutorials << t1
+    end
+
+
+
 
     respond_to do |format|
       if @cohort.save
@@ -52,6 +63,11 @@ class CohortsController < ApplicationController
         format.json { render json: @cohort.errors, status: :unprocessable_entity }
       end
     end
+
+
+
+
+
   end
 
   # PUT /cohorts/1

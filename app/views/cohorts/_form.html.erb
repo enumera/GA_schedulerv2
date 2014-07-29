@@ -29,12 +29,16 @@
   </div>
   <div class="field">
     <%= f.label :course_id %><br />
-    <%= f.number_field :course_id %>
+    <%= f.collection_select :course_id, Course.all, :id, :name %>
   </div>
  <div class="field">
     <%= f.label :status_id %><br />
     <%= f.collection_select :status_id, Status.where(thing: "cohort"), :id, :statusname %>
   </div>
+
+
+
+
   <div class="actions">
     <%= f.submit %>
   </div>

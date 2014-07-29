@@ -20,18 +20,7 @@
   <%= @course.status.statusname %>
 </p>
 
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Subject</th>
-    <th>Timerequired</th>
-    <th>Status</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-<%=render @lessons %>
-</table>
+
 
 <%= link_to 'Edit', edit_course_path(@course) %> |
 <%= link_to 'Back', courses_path %>
