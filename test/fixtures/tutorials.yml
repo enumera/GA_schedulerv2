@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  status_id: 1
+  timerquired: 1
+  cohort_id: MyString
+  subject: MyString
+
+two:
+  name: MyString
+  status_id: 1
+  timerquired: 1
+  cohort_id: MyString
+  subject: MyString

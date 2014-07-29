@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @profile.name %>
+</p>
+
+<p>
+  <b>Primarylocation:</b>
+  <%= @profile.primarylocation %>
+</p>
+
+<p>
+  <b>Role:</b>
+  <%= @profile.role %>
+</p>
+
+<p>
+  <b>Picture:</b>
+  <%= @profile.picture %>
+</p>
+
+<p>
+  <b>Assignedlocation:</b>
+  <%= @profile.assignedlocation %>
+</p>
+
+
+<%= link_to 'Edit', edit_profile_path(@profile) %> |
+<%= link_to 'Back', profiles_path %>
