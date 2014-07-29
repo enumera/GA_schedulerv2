@@ -23,10 +23,11 @@
     <%= f.label :timerequired %><br />
     <%= f.number_field :timerequired %>
   </div>
-  <div class="field">
+   <div class="field">
     <%= f.label :status_id %><br />
-    <%= f.number_field :status_id %>
+    <%= f.collection_select :status_id, Status.where(thing: "lesson"), :id, :statusname %>
   </div>
+ 
   <div class="actions">
     <%= f.submit %>
   </div>

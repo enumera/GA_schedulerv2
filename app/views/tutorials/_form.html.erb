@@ -17,7 +17,7 @@
   </div>
   <div class="field">
     <%= f.label :status_id %><br />
-    <%= f.number_field :status_id %>
+    <%= f.collection_select :status_id, Status.where(thing: "tutorial"), :id, :statusname %>
   </div>
   <div class="field">
     <%= f.label :timerquired %><br />

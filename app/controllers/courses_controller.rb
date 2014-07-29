@@ -1,7 +1,7 @@
 class CoursesController < ApplicationController
   # GET /courses
   # GET /courses.json
-  before_filter :authenticate
+  # before_filter :authenticate
 
   def index
      
@@ -17,7 +17,7 @@ class CoursesController < ApplicationController
   # GET /courses/1.json
   def show
     @course = Course.find(params[:id])
-    authorize! :show, Course
+  
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @course }

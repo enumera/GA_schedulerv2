@@ -3,5 +3,6 @@ class Cohort < ActiveRecord::Base
    belongs_to :course
   has_many :tutorials
   has_and_belongs_to_many :profiles
+  belongs_to :status
 
 end
