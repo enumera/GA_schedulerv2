@@ -1,16 +1,14 @@
 class UsersController < ApplicationController
  def new
     @user = User.new
+    
   end
 
   def create 
     @user = User.new(params[:user])
-
     @user.role = "user"
-    binding.pry
     if @user.save
-      redirect_to root_path
-      
+      redirect_to new_profile_path
     else
       render 'new'
     end
