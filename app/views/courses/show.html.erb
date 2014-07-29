@@ -23,3 +23,17 @@
 
 <%= link_to 'Edit', edit_course_path(@course) %> |
 <%= link_to 'Back', courses_path %>
+
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Subject</th>
+    <th>Timerequired</th>
+    <th>Status</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+<%=render @lessons %>
+</table>
