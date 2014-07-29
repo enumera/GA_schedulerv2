@@ -7,6 +7,10 @@ gem 'rails', '3.2.17'
 
 gem 'sqlite3'
 
+gem 'carrierwave'
+
+gem 'rmagick', :require => 'RMagick'
+
 gem 'bcrypt-ruby', '~> 3.0.0'
 
 gem 'cancan'
