@@ -27,6 +27,16 @@
     <%= f.label :status_id %><br />
     <%= f.collection_select :status_id, Status.where(thing: "course"), :id, :statusname %>
   </div>
+   <div>
+  <% Lesson.all.each do |lesson| %>
+    <%=lesson.name %>
+    <%= check_box_tag 'course[lesson_ids][]', lesson.id, @course.lessons.include?(lesson), id: "course_lesson_ids_#{lesson.id}" %>
+<% end %>
+
+  </div>
+
+
+
   <div class="actions">
     <%= f.submit %>
   </div>

@@ -28,7 +28,9 @@ class CoursesController < ApplicationController
   # GET /courses/new
   # GET /courses/new.json
   def new
+    @lessons = Lesson.all
     @course = Course.new
+  
 
     respond_to do |format|
       format.html # new.html.erb
@@ -44,7 +46,9 @@ class CoursesController < ApplicationController
   # POST /courses
   # POST /courses.json
   def create
+    binding.pry
     @course = Course.new(params[:course])
+
 
     respond_to do |format|
       if @course.save

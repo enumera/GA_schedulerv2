@@ -16,7 +16,7 @@
     <td><%= lesson.name %></td>
     <td><%= lesson.subject %></td>
     <td><%= lesson.timerequired %></td>
-    <td><%= lesson.status_id %></td>
+    <td><%= lesson.status.statusname %></td>
     <td><%= link_to 'Show', lesson %></td>
     <td><%= link_to 'Edit', edit_lesson_path(lesson) %></td>
     <td><%= link_to 'Destroy', lesson, method: :delete, data: { confirm: 'Are you sure?' } %></td>
