@@ -11,7 +11,18 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140728235547) do
+ActiveRecord::Schema.define(:version => 20140729095654) do
+
+  create_table "classrooms", :force => true do |t|
+    t.string   "name"
+    t.string   "location"
+    t.boolean  "projector"
+    t.integer  "tables"
+    t.integer  "chairs"
+    t.boolean  "chillout"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "cohorts", :force => true do |t|
     t.string   "name"
@@ -41,6 +52,15 @@ ActiveRecord::Schema.define(:version => 20140728235547) do
   create_table "courses_lessons", :id => false, :force => true do |t|
     t.integer "course_id"
     t.integer "lesson_id"
+  end
+
+  create_table "histories", :force => true do |t|
+    t.integer  "p_id"
+    t.integer  "st_id"
+    t.integer  "t_id"
+    t.integer  "c_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "lessons", :force => true do |t|
@@ -73,6 +93,13 @@ ActiveRecord::Schema.define(:version => 20140728235547) do
     t.datetime "updated_at", :null => false
   end
 
+  create_table "statuses", :force => true do |t|
+    t.string   "thing"
+    t.string   "statusname"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "tutorials", :force => true do |t|
     t.string   "name"
     t.integer  "status_id"
@@ -81,6 +108,13 @@ ActiveRecord::Schema.define(:version => 20140728235547) do
     t.string   "subject"
     t.datetime "created_at",  :null => false
     t.datetime "updated_at",  :null => false
+  end
+
+  create_table "users", :force => true do |t|
+    t.string   "email"
+    t.string   "password_digest"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
   end
 
 end

@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  p_id: 1
+  st_id: 1
+  t_id: 1
+  c_id: 1
+
+two:
+  p_id: 1
+  st_id: 1
+  t_id: 1
+  c_id: 1
