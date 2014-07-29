@@ -41,7 +41,7 @@ class ProfilesController < ApplicationController
   # POST /profiles
   # POST /profiles.json
   def create
-    binding.pry
+  binding.pry
     @profile = Profile.new(params[:profile])
 
     respond_to do |format|

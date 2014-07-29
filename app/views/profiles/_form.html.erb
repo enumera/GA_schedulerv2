@@ -19,7 +19,10 @@
     <%= f.label :primarylocation %><br />
     <%= f.text_field :primarylocation %>
   </div>
-
+<div>
+  <%= f.label :role_id %><br />
+    <%= f.collection_select :role_id, Role.all, :id, :name %>
+</div>
   <div class="field">
     <%= f.label :picture %><br />
     <%= f.file_field :picture %>
