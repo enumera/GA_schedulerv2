@@ -16,8 +16,9 @@
     <%= f.text_field :name %>
   </div>
   <div class="field">
-    <%= f.label :primarylocation %><br />
-    <%= f.text_field :primarylocation %>
+     <%= f.label :location_id %><br />
+    <%= f.collection_select :location_id, Location.all, :id, :name %>
+   
   </div>
 <div>
   <%= f.label :role_id %><br />
@@ -27,10 +28,7 @@
     <%= f.label :picture %><br />
     <%= f.file_field :picture %>
   </div>
-  <div class="field">
-    <%= f.label :assignedlocation %><br />
-    <%= f.text_field :assignedlocation %>
-  </div>
+ 
   <div class="actions">
     <%= f.submit %>
   </div>

@@ -2,6 +2,9 @@ GaSchedulerv3::Application.routes.draw do
   
 
 
+ 
+
+
   get "/signup",    to: "profiles#new",      as: :signup
   get "/login",     to: "sessions#new",     as: :login
   delete "/logout", to: "sessions#destroy", as: :logout
@@ -11,6 +14,7 @@ GaSchedulerv3::Application.routes.draw do
  
   resources :sessions, only: [:new, :create, :destroy]
  
+  resources :locations
 
   resources :histories
 

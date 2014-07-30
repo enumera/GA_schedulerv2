@@ -4,9 +4,7 @@ class Course < ActiveRecord::Base
 has_and_belongs_to_many :lessons
 belongs_to :status
 
-def add_lesson(lesson)
-self.lesson << lesson
-end
+
 
 
 end

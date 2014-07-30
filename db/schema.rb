@@ -11,28 +11,28 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140730124255) do
+ActiveRecord::Schema.define(:version => 20140730140421) do
 
   create_table "classrooms", :force => true do |t|
     t.string   "name"
-    t.string   "location"
+    t.integer  "location_id"
     t.boolean  "projector"
     t.integer  "tables"
     t.integer  "chairs"
     t.boolean  "chillout"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
   create_table "cohorts", :force => true do |t|
     t.string   "name"
-    t.string   "location"
+    t.integer  "location_id"
     t.date     "start_date"
     t.date     "end_date"
     t.integer  "course_id"
     t.integer  "status_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
   create_table "cohorts_profiles", :id => false, :force => true do |t|
@@ -72,12 +72,17 @@ ActiveRecord::Schema.define(:version => 20140730124255) do
     t.datetime "updated_at",   :null => false
   end
 
+  create_table "locations", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "profiles", :force => true do |t|
     t.string   "name"
-    t.string   "primarylocation"
     t.integer  "role_id"
     t.string   "picture"
-    t.string   "assignedlocation"
+    t.integer  "location_id"
     t.datetime "created_at",            :null => false
     t.datetime "updated_at",            :null => false
     t.string   "password"
@@ -113,6 +118,7 @@ ActiveRecord::Schema.define(:version => 20140730124255) do
     t.datetime "created_at",   :null => false
     t.datetime "updated_at",   :null => false
     t.integer  "classroom_id"
+    t.integer  "location_id"
   end
 
   create_table "users", :force => true do |t|
