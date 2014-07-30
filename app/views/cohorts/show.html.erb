@@ -62,13 +62,16 @@ Lead instructor
 <%= @profile.first.name %>
 </br>
 
-Students
-
-
-<% @students.each do |student| %>
-  <p>  <%= student.email %> </p>
+Teaching Assistants
+<% @tas.each do |ta| %>
+  <p>  <%= ta.name %> </p>
 <% end %>
 <br />
+Students
+<% @students.each do |student| %>
+  <p>  <%= student.name %> </p>
+<% end %>
+
 
 
 <%= link_to 'Enrol', enroll_cohort_path(@cohort)%>

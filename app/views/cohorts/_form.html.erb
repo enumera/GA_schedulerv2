@@ -41,7 +41,14 @@
 <%= radio_button_tag("cohort[profile_ids][]", profile.id, @cohort.profiles.include?(profile),id: "cohort_profiles_ids_#{profile.id}") %>
 <%= label_tag(:profile, profile.name) %>
 
+<b> Select the Teaching assistants </b>
+   <div>
+  <% Profile.where(role_id: 4).each do |profile| %>
+    <%=profile.name %>
+    <%= check_box_tag 'cohort[profile_ids][]', profile.id, @cohort.profiles.include?(profile), id: "cohort_profiles_ids_#{profile.id}" %>
+<% end %>
 
+  </div>
 
 <% end %>
 

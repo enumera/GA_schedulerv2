@@ -18,6 +18,7 @@ class CohortsController < ApplicationController
     @tutorials = @cohort.tutorials
     @profile = @cohort.profiles.where(role_id: 3)
     @students = @cohort.profiles.where(role_id: 1)
+    @tas = @cohort.profiles.where(role_id: 4)
     binding.pry
     respond_to do |format|
       format.html # show.html.erb
@@ -102,14 +103,24 @@ class CohortsController < ApplicationController
 
 def enroll
 
-  @cohort = Cohort.find(params[:id])
+    @cohort = Cohort.find(params[:id])
+  
+    
+    if @cohort.profiles.include? current_user
+      redirect_to cohort_path, notice: 'You are already signed on to this course'
+    else
+      @cohort.profiles << current_user
+       @cohort.save
+      redirect_to cohort_path, notice: 'You have successfully signed on to this course'
+    end
+  end
+  # @cohort = Cohort.find(params[:id])
  
-  @cohort.profiles << current_user
-  @cohort.save
-  redirect_to cohorts_url
+  # @cohort.profiles << current_user
+  # @cohort.save
+  # redirect_to cohorts_url
 end
 
 
 
-end
 
