@@ -23,7 +23,7 @@
 
 <% if current_user %>
        <p> hello, <%= current_user.email %> </p>
-
+       <%=link_to "Edit profile", my_profile_path %>
      
        <%= link_to 'Logout', logout_path, method: :delete, data: {confirm: "Are you sure?"} %>
       <% else %>

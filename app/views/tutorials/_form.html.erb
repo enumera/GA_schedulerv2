@@ -31,13 +31,15 @@
     <%= f.label :subject %><br />
     <%= f.text_field :subject %>
   </div>
+
+
+     <div class="field">
+    <%= f.label :classroom_id %><br />
+    <%= f.collection_select :classroom_id, Classroom.all, :id, :name %>
+  </div>
   <div class="actions">
     <%= f.submit %>
   </div>
 
-    <div class="field">
-    <%= f.label :classroom_id %><br />
-    <%= f.collection_select :classroom_id, Classroom.all, :id, :name %>
-  </div>
 
 <% end %>

@@ -62,6 +62,15 @@ Lead instructor
 <%= @profile.first.name %>
 </br>
 
+Students
+
+
+<% @students.each do |student| %>
+  <p>  <%= student.email %> </p>
+<% end %>
+<br />
+
+
 <%= link_to 'Enrol', enroll_cohort_path(@cohort)%>
 <%= link_to 'Edit', edit_cohort_path(@cohort) %> |
 <%= link_to 'Back', cohorts_path %>

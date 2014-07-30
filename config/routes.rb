@@ -6,6 +6,8 @@ GaSchedulerv3::Application.routes.draw do
   get "/login",     to: "sessions#new",     as: :login
   delete "/logout", to: "sessions#destroy", as: :logout
 
+  get "/profile", to: "profiles#edit", as: :my_profile
+
  
   resources :sessions, only: [:new, :create, :destroy]
  
@@ -19,7 +21,7 @@ GaSchedulerv3::Application.routes.draw do
   resources :statuses
 
 
-  resources :profiles
+  resources :profiles, except: [:edit]
 
 
   resources :roles

@@ -14,7 +14,10 @@ class ProfilesController < ApplicationController
   # GET /profiles/1
   # GET /profiles/1.json
   def show
-    @profile = Profile.find(params[:id])
+    binding.pry
+    @profile = current_user
+    
+
    
 
     respond_to do |format|
@@ -36,14 +39,8 @@ class ProfilesController < ApplicationController
 
   # GET /profiles/1/edit
   def edit
-    @profile = Profile.find(params[:id])
+    @profile = current_user
   end
-
-
- 
-
-
-
 
   # POST /profiles
   # POST /profiles.json
