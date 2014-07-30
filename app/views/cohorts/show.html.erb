@@ -58,6 +58,9 @@
 <% end %>
 </table>
 
+Lead instructor 
+<%= @profile.first.name %>
+</br>
 
 <%= link_to 'Enrol', enroll_cohort_path(@cohort)%>
 <%= link_to 'Edit', edit_cohort_path(@cohort) %> |

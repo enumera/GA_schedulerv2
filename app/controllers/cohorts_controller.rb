@@ -16,7 +16,8 @@ class CohortsController < ApplicationController
   def show
     @cohort = Cohort.find(params[:id])
     @tutorials = @cohort.tutorials
-
+    @profile = @cohort.profiles.where(role_id: 3)
+    binding.pry
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @cohort }
@@ -36,6 +37,7 @@ class CohortsController < ApplicationController
 
   # GET /cohorts/1/edit
   def edit
+
     @cohort = Cohort.find(params[:id])
   end
 
@@ -43,15 +45,14 @@ class CohortsController < ApplicationController
   # POST /cohorts.json
   def create
     @cohort = Cohort.new(params[:cohort])
+    course = Course.find(params[:cohort][:course_id])
     
   
-   binding.pry
-    Lesson.all.each do |lesson|
+    binding.pry
+    course.lessons.all.each do |lesson|
       t1 = Tutorial.create(name: lesson.name, status_id: lesson.status_id)
       @cohort.tutorials << t1
     end
-
-
 
 
     respond_to do |format|
@@ -74,7 +75,7 @@ class CohortsController < ApplicationController
   # PUT /cohorts/1.json
   def update
     @cohort = Cohort.find(params[:id])
-
+    binding.pry
     respond_to do |format|
       if @cohort.update_attributes(params[:cohort])
         format.html { redirect_to @cohort, notice: 'Cohort was successfully updated.' }
@@ -105,6 +106,14 @@ binding.pry
   @cohort.profiles << current_user
   @cohort.save
 end
+
+
+def assign
+
+  @cohort = Cohort.find(params[:id])
+  @cohort.profiles << current_user
+  @cohort.save
 end
 
 end
+
