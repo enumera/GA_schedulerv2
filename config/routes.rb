@@ -28,7 +28,11 @@ GaSchedulerv3::Application.routes.draw do
   resources :tutorials
 
 
-  resources :cohorts
+  resources :cohorts do 
+    member do
+      get :enroll
+    end
+  end
 
 
   resources :lessons

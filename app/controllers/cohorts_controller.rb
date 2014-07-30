@@ -98,6 +98,13 @@ class CohortsController < ApplicationController
     end
   end
 
-
+def enroll
+binding.pry
+  @cohort = Cohort.find(params[:id])
+ 
+  @cohort.profiles << current_user
+  @cohort.save
+end
+end
 
 end

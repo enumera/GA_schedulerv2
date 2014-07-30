@@ -15,6 +15,7 @@ class TutorialsController < ApplicationController
   # GET /tutorials/1.json
   def show
     @tutorial = Tutorial.find(params[:id])
+  
 
     respond_to do |format|
       format.html # show.html.erb

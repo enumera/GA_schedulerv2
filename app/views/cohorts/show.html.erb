@@ -29,6 +29,9 @@
   <b>Status:</b>
   <%= @cohort.status.statusname %>
 </p>
+
+<b>Enroll !</b>
+
 <table>
   <tr>
     <th>Name</th>
@@ -56,6 +59,7 @@
 </table>
 
 
+<%= link_to 'Enrol', enroll_cohort_path(@cohort)%>
 <%= link_to 'Edit', edit_cohort_path(@cohort) %> |
 <%= link_to 'Back', cohorts_path %>
 
