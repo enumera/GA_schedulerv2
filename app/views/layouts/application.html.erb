@@ -7,19 +7,31 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-  <header>
+<header>
+    <%=image_tag('GA-Logo.png')%> <h1>SCHEDULER</h1>
+  </header>
+  <div>
     <nav>
         <ul>
           <li>
-            <%=link_to 'courses', courses_path %>
+            <%=link_to 'Home', root_path %>
+            <% if admin? then %>
+            <%=link_to 'All GA Courses', cohorts_path %>
+            <%=link_to 'Courses', courses_path %>
+            <%=link_to 'Lessons', lessons_path %>
+            <% end %>
+            <% if admin? || producer? then %>
+            <%=link_to 'Your cohorts', cohorts_path %>
+            <%=link_to 'Your staff', cohorts_path %>
+            <% end %>
+
           </li>
        
          
         </ul>
 
       </nav>
-    </header>
+    </div>
 
 <% if current_user %>
        <p> hello, <%= current_user.email %> </p>

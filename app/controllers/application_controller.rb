@@ -20,5 +20,9 @@ class ApplicationController < ActionController::Base
      redirect_to root_url , alert: "You can't access this page"
     end
 
+    def admin?
+      current_user && current_user.role == "admin"
+    end
+
 end
 

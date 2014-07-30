@@ -3,10 +3,11 @@
 <table>
   <tr>
     <th>Name</th>
-    <th>Primarylocation</th>
+    <th>Campus</th>
     <th>Role</th>
     <th>Picture</th>
-    <th>Assignedlocation</th>
+    <th>Email</th>
+    
     <th></th>
     <th></th>
     <th></th>
@@ -17,11 +18,14 @@
     <td><%= profile.name %></td>
     <td><%= profile.location.name %></td>
     <td><%= profile.role.name %></td>
-    <td><%= profile.picture %></td>
+   <td> <%= image_tag profile.picture.thumb %></td>
+   <td> <%= profile.email %></td>
   
-    
+  
+    <% if admin? then %>
    
-    <td><%= link_to 'Destroy', profile, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><%= link_to 'Delete', profile, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <%end%>
   </tr>
 <% end %>
 </table>

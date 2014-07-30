@@ -6,6 +6,7 @@
     <th>Location</th>
     <th>Start date</th>
     <th>End date</th>
+
     <th>Course</th>
     <th>Status</th>
     <th></th>
@@ -19,11 +20,15 @@
     <td><%= cohort.location.name %></td>
     <td><%= cohort.start_date %></td>
     <td><%= cohort.end_date %></td>
-    <td><%= cohort.course_id %></td>
-    <td><%= cohort.status_id %></td>
-    <td><%= link_to 'Show', cohort %></td>
+    <td><%= cohort.course.name %></td>
+    <td><%= cohort.status.statusname %></td>
+    
+    <td><%= link_to 'Take a look !', cohort %></td>
+  
+     <% if admin? then %>
     <td><%= link_to 'Edit', edit_cohort_path(cohort) %></td>
     <td><%= link_to 'Destroy', cohort, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+     <% end %>
   </tr>
 <% end %>
 </table>

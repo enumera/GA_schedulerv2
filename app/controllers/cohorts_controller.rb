@@ -19,7 +19,7 @@ class CohortsController < ApplicationController
     @profile = @cohort.profiles.where(role_id: 3)
     @students = @cohort.profiles.where(role_id: 1)
     @tas = @cohort.profiles.where(role_id: 4)
-    binding.pry
+   
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @cohort }
