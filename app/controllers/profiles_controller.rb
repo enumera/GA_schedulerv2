@@ -15,6 +15,7 @@ class ProfilesController < ApplicationController
   # GET /profiles/1.json
   def show
     @profile = Profile.find(params[:id])
+   
 
     respond_to do |format|
       format.html # show.html.erb
@@ -38,16 +39,29 @@ class ProfilesController < ApplicationController
     @profile = Profile.find(params[:id])
   end
 
+
+ 
+
+
+
+
   # POST /profiles
   # POST /profiles.json
-  def create
   
+  def create 
     @profile = Profile.new(params[:profile])
+    binding.pry
+    @profile.role = Role.find(1)
 
     respond_to do |format|
-      if @profile.save
-        format.html { redirect_to @profile, notice: 'Profile was successfully created.' }
-        format.json { render json: @profile, status: :created, location: @profile }
+      if @profile.save && !current_user
+        session[:profile_id] = @profile.id
+        binding.pry
+        format.html { redirect_to root_path, notice: 'Profile was successfully created.' }
+       
+      elsif @profile.save
+        format.html { redirect_to root_path, notice: 'Profile was successfully created.' }
+       
       else
         format.html { render action: "new" }
         format.json { render json: @profile.errors, status: :unprocessable_entity }
@@ -82,4 +96,7 @@ class ProfilesController < ApplicationController
       format.json { head :no_content }
     end
   end
+ 
+
+
 end
