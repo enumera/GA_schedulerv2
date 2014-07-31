@@ -11,20 +11,24 @@
  *= require_self
  *= require_tree .
  */
-
+/*
 .banner {
 
 background-color: #000000;
 height: 150px;
 padding: 5px;
-}
+}*/
 
 
 body {
   background-color: #fff;
-  color: #333;
+  color: #111;
   font-family: verdana, arial, helvetica, sans-serif;
+   background: url("ga21.jpg") ;
+   background-size: 100%;
+   background-repeat: no-repeat;
   
+ 
 }
 
 p, ol, ul, td {
@@ -52,7 +56,7 @@ pre {
 }
 
 a {
-  color: #000;
+  color: #111;
   &:visited {
     color: #666;
   }
@@ -93,7 +97,7 @@ div {
     margin: -7px;
     margin-bottom: 0px;
     background-color: #c00;
-    color: #fff;
+    color: #111;
   }
   ul li {
     font-size: 12px;
@@ -110,6 +114,16 @@ height: 150px;
 width:1150px;
   
 }
+banner a {
+  color: #bff;
+  &:visited {
+    color: #666;
+  }
+  &:hover {
+    color: #fff;
+    background-color: #000;
+  }
+}
 
 .field {
   margin-left: 5px;
@@ -119,19 +133,19 @@ width:1150px;
   vertical-align: top;
   background-color:rgba(244,244,244,0.5);
   box-shadow: 11px 9px 16px #000000;
-  color: blue;
+  color: #111;
 }
 
 
 .index_table{
   margin-left: 5px;
-  width: 300px;
+  
   padding: 5px;
   display: inline-block;
   vertical-align: top;
   background-color:rgba(244,244,244,0.5);
   box-shadow: 11px 9px 16px #000000;
-  color: green;
+  color:  #111;
    font-size: 20px;
   line-height: 18px;
 }
@@ -144,7 +158,7 @@ width:1150px;
   vertical-align: top;
   background-color:rgba(244,244,244,0.5);
   box-shadow: 11px 9px 16px #000000;
-  color: green;
+  color: #111;
    font-size: 20px;
   line-height: 18px;
 }
@@ -165,7 +179,7 @@ width:1150px;
 
 .menu a{
 
-  color: #bbc;
+  color: #111;
 }
 
 

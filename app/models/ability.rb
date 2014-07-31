@@ -14,10 +14,13 @@ class Ability
         can [:index, :show], Course
        when "instructor"
         can [:edit, :update], Profile
+        can :manage, Cohort
        when "student"
         can [:edit, :update], Profile
-        when "teaching assitant"
+        can [:index, :show, :enroll], Cohort
+        when "teaching assistant"
         can [:edit, :update], Profile
+        can :manage, Cohort
       end
     end
   end

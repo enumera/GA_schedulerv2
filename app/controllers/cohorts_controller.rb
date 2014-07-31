@@ -4,7 +4,7 @@ class CohortsController < ApplicationController
   authorize_resource
 
   def index
-        if current_user.role.name == "producer"
+        if current_user.role.name == "producer" or current_user.role.name == "instructor"
           producer_location = current_user.location_id
           @cohorts = Cohort.where(location_id: producer_location)
         else
@@ -25,6 +25,7 @@ class CohortsController < ApplicationController
     @profile = @cohort.profiles.where(role_id: 3)
     @students = @cohort.profiles.where(role_id: 1)
     @tas = @cohort.profiles.where(role_id: 4)
+
    
     respond_to do |format|
       format.html # show.html.erb
@@ -55,17 +56,17 @@ class CohortsController < ApplicationController
   # POST /cohorts
   # POST /cohorts.json
   def create
+  
+
     @cohort = Cohort.new(params[:cohort])
     course = Course.find(params[:cohort][:course_id])
     
-  
-  
     course.lessons.all.each do |lesson|
       t1 = Tutorial.create(name: lesson.name, status_id: lesson.status_id)
       @cohort.tutorials << t1
     end
-
-
+    @cohort.location_id = current_user.location_id
+    binding.pry
     respond_to do |format|
       if @cohort.save
         format.html { redirect_to @cohort, notice: 'Cohort was successfully created.' }
@@ -116,11 +117,13 @@ def enroll
   
     
     if @cohort.profiles.include? current_user
-      redirect_to cohort_path, notice: 'You are already signed on to this course'
+      redirect_to cohorts_path, notice: 'You are already signed on to this course'
+     
     else
       @cohort.profiles << current_user
        @cohort.save
-      redirect_to cohort_path, notice: 'You have successfully signed on to this course'
+      redirect_to cohorts_path, notice: 'You have successfully signed on to this course'
+      
     end
   end
   # @cohort = Cohort.find(params[:id])

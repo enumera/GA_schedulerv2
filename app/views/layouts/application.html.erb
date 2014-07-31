@@ -23,6 +23,7 @@
             <%=link_to 'Courses', courses_path %>
             <%=link_to 'Lessons', lessons_path %>
             <%=link_to 'All cohorts', cohorts_path %>
+             <%=link_to 'All tutorials', cohorts_path %>
             <%=link_to 'All staff', profiles_path %>
             <% end %>
             <% if producer? %>
@@ -36,6 +37,14 @@
               <%=link_to 'Classrooms', classrooms_path %>
               <%=link_to 'Locations', locations_path %>
             <% end %>
+            <% if student? %>
+            <%=link_to 'All courses', cohorts_path %>
+           
+            <% end %>
+            <% if instructor? || teaching_assistant? %>
+             <%=link_to 'Your courses', cohorts_path %>
+             <% end %>
+
 
         </ul>
 

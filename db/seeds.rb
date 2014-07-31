@@ -51,8 +51,8 @@ Classroom.destroy_all
 
 Classroom.create(name: "1:1", location_id: 1)
 Classroom.create(name: "1:2", location_id: 1)
-Classroom.create(name: "2:1", location_id: 1)
-Classroom.create(name: "2:2", location_id: 1)
+Classroom.create(name: "2:1", location_id: 2)
+Classroom.create(name: "2:2", location_id: 2)
 Classroom.create(name: "1:1", location_id: 1)
 Classroom.create(name: "1:2", location_id: 1)
 Classroom.create(name: "1:3", location_id: 1)

@@ -28,10 +28,18 @@
     <%= f.label :subject %><br />
     <%= f.text_field :subject %>
   </div>
+  <% if admin? %>
    <div class="field">
  <%= f.label :location_id %><br />
     <%= f.collection_select :location_id, Location.all, :id, :name %>
 </div>
+<% end %>
+<% if producer? %>
+  <div class="field">
+   Location <%= @tutorial.location.name %>
+  </div>
+<% end %>
+
      <div class="field">
     <%= f.label :classroom_id %><br />
     <%= f.collection_select :classroom_id, Classroom.all, :id, :name %>

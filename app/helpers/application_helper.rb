@@ -13,8 +13,10 @@ module ApplicationHelper
     def instructor?
         current_user && current_user.role.name == "instructor"
       end
-      
 
+ def teaching_assistant?
+        current_user && current_user.role.name == "teaching assistant"
+      end
 
 
 end

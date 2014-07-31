@@ -1,5 +1,11 @@
-<h1>Listing cohorts</h1>
 
+<% if producer? || admin? || instructor? || teaching_assistant? %>
+<h2>Listing cohorts</h2>
+<% end %>
+<% if student? %>
+<h2> Available courses <h2>
+<% end %>
+<div class="index_table">
 <table>
   <tr>
     <th>Name</th>
@@ -33,7 +39,8 @@
   </tr>
 <% end %>
 </table>
-
+</div>
 <br />
-
-<%= link_to 'New Cohort', new_cohort_path %>
+<% if producer? %>
+<%= link_to 'Add a new course', new_cohort_path %>
+<% end %>

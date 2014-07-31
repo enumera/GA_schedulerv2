@@ -4,6 +4,7 @@ class ProfilesController < ApplicationController
   # GET /profiles/new.json
   def new
     @profile = Profile.new
+
     
     respond_to do |format|
       format.html # new.html.erb
@@ -16,6 +17,10 @@ class ProfilesController < ApplicationController
     if current_user.role.name == "producer"
       producer_location  = current_user.location_id
       @profiles = Profile.where(location_id: producer_location)
+   
+     
+
+
     else
       @profiles = Profile.all
     end
@@ -31,6 +36,8 @@ class ProfilesController < ApplicationController
   # GET /profiles/1.json
   def show
     @profile = current_user
+    corhorts = Corhort.all
+
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @profile }
@@ -50,7 +57,7 @@ class ProfilesController < ApplicationController
 
   # GET /profiles/1/edit
   def edit
-    binding.pry
+  
     if current_user.role.name =="admin"
       @profile = Profile.find(params[:id])
     else
@@ -65,13 +72,13 @@ class ProfilesController < ApplicationController
   def create 
     @profile = Profile.new(params[:profile])
     @profile.name = params[:name]
-    binding.pry
+    
     @profile.role = Role.find(1)
 
     respond_to do |format|
       if @profile.save && !current_user
         session[:profile_id] = @profile.id
-        binding.pry
+      
         format.html { redirect_to root_path, notice: 'Profile was successfully created.' }
        
       elsif @profile.save

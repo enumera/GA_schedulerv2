@@ -19,7 +19,7 @@
   <b>End date:</b>
   <%= @cohort.end_date %>
 </p>
-
+<% if admin? || producer? || instructor? %>
 <p>
   <b>Course:</b>
   <%= @cohort.course.name %>
@@ -29,55 +29,67 @@
   <b>Status:</b>
   <%= @cohort.status.statusname %>
 </p>
+<% end %>
 
-<b>Enroll !</b>
 
 <table>
   <tr>
     <th>Name</th>
+    <% if admin? || producer? || instructor? %>
     <th>Status</th>
     <th>Timerquired</th>
     <th>Cohort</th>
+    <% end %>
     <th>Subject</th>
     <th></th>
     <th></th>
     <th></th>
   </tr>
-
+Classes:
 <% @tutorials.each do |tutorial| %>
   <tr>
     <td><%= tutorial.name %></td>
-    <td><%= tutorial.status_id %></td>
+    <% if producer? || instructor? %>
+    <td><%= tutorial.status.statusname %></td>
     <td><%= tutorial.timerquired %></td>
-    <td><%= tutorial.cohort_id %></td>
+    <td><%= tutorial.cohort.name %></td>
     <td><%= tutorial.subject %></td>
     <td><%= link_to 'Show', tutorial %></td>
+    <% if producer? %>
     <td><%= link_to 'Edit', edit_tutorial_path(tutorial) %></td>
     <td><%= link_to 'Destroy', tutorial, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <% end %>
+    <% end %>
   </tr>
 <% end %>
 </table>
 
-<% if producer? %>
+<% if producer? || admin? || instructor? || teaching_assistant? %>
 
-Lead instructor 
+Lead instructor :
 <%= @profile.first.name %>
 </br>
 
-Teaching Assistants
+Teaching Assistants:
 <% @tas.each do |ta| %>
-  <p>  <%= ta.name %> </p>
+   <%= ta.name %> 
 <% end %>
 <br />
-Students
+
+Students: 
 <% @students.each do |student| %>
-  <p>  <%= student.name %> </p>
+  <%= student.name %> 
 <% end %>
 
-<%end%>
+<% end %>
 
-
+<% if student? %>
 <%= link_to 'Enrol', enroll_cohort_path(@cohort)%>
+<br />
+<% end %>
+<% if producer? || admin? %>
 <%= link_to 'Edit', edit_cohort_path(@cohort) %> |
-<%= link_to 'Back', cohorts_path %>
+<% end %>
+<br />
+<%= link_to '<< Back', cohorts_path %>
 
