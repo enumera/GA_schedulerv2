@@ -1,10 +1,13 @@
 class ClassroomsController < ApplicationController
   # GET /classrooms
   # GET /classrooms.json
-  # before_filter :authenticate
+  
+  before_filter :authenticate
+
+
   def index
     @classrooms = Classroom.all
-
+      authorize! :index, @classrooms
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @classrooms }
@@ -15,7 +18,7 @@ class ClassroomsController < ApplicationController
   # GET /classrooms/1.json
   def show
     @classroom = Classroom.find(params[:id])
-
+    authorize! :show, @classroom
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @classroom }
@@ -26,7 +29,7 @@ class ClassroomsController < ApplicationController
   # GET /classrooms/new.json
   def new
     @classroom = Classroom.new
-
+    authorize! :new, @classroom
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @classroom }
@@ -36,13 +39,14 @@ class ClassroomsController < ApplicationController
   # GET /classrooms/1/edit
   def edit
     @classroom = Classroom.find(params[:id])
+authorize! :index, @classroom
   end
 
   # POST /classrooms
   # POST /classrooms.json
   def create
     @classroom = Classroom.new(params[:classroom])
-
+    authorize! :create, @classroom
     respond_to do |format|
       if @classroom.save
         format.html { redirect_to @classroom, notice: 'Classroom was successfully created.' }
@@ -75,10 +79,14 @@ class ClassroomsController < ApplicationController
   def destroy
     @classroom = Classroom.find(params[:id])
     @classroom.destroy
-
+    authorize! :destroy, @classroom
     respond_to do |format|
       format.html { redirect_to classrooms_url }
       format.json { head :no_content }
     end
   end
 end
+
+
+
+

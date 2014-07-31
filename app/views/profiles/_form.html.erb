@@ -18,12 +18,14 @@
   <div class="field">
      <%= f.label :location_id %><br />
     <%= f.collection_select :location_id, Location.all, :id, :name %>
-   
-  </div>
-<div>
+   </div>
+
+<% if admin? %>
+<div class="field">
   <%= f.label :role_id %><br />
     <%= f.collection_select :role_id, Role.all, :id, :name %>
 </div>
+<% end %>
   <div class="field">
     <%= f.label :picture %><br />
     <%= f.file_field :picture %>

@@ -1,10 +1,26 @@
 class ProfilesController < ApplicationController
-  # GET /profiles
-  # GET /profiles.json
-  
-  def index
-    @profiles = Profile.all
 
+  # GET /profiles/new
+  # GET /profiles/new.json
+  def new
+    @profile = Profile.new
+    
+    respond_to do |format|
+      format.html # new.html.erb
+      format.json { render json: @profile }
+    end
+  end
+   
+  def index
+  
+    if current_user.role.name == "producer"
+      producer_location  = current_user.location_id
+      @profiles = Profile.where(location_id: producer_location)
+    else
+      @profiles = Profile.all
+    end
+      authorize! :index, Profile
+   
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @profiles }
@@ -14,12 +30,7 @@ class ProfilesController < ApplicationController
   # GET /profiles/1
   # GET /profiles/1.json
   def show
-    binding.pry
     @profile = current_user
-    
-
-   
-
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @profile }
@@ -39,7 +50,13 @@ class ProfilesController < ApplicationController
 
   # GET /profiles/1/edit
   def edit
-    @profile = current_user
+    binding.pry
+    if current_user.role.name =="admin"
+      @profile = Profile.find(params[:id])
+    else
+      @profile = Profile.find(current_user.id)
+    end
+
   end
 
   # POST /profiles
@@ -47,6 +64,7 @@ class ProfilesController < ApplicationController
   
   def create 
     @profile = Profile.new(params[:profile])
+    @profile.name = params[:name]
     binding.pry
     @profile.role = Role.find(1)
 

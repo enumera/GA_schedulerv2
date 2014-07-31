@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::Base
+  # helper_method :admin?
 
    helper_method :current_user
   def current_user
@@ -16,12 +17,18 @@ class ApplicationController < ActionController::Base
   end
     helper_method :current_user
   
- rescue_from CanCan::AccessDenied do |exception|
+  rescue_from CanCan::AccessDenied do |exception|
      redirect_to root_url , alert: "You can't access this page"
     end
 
-    def admin?
-      current_user && current_user.role == "admin"
+    # def admin?
+    #   current_user && current_user.role == "admin"
+    # end
+
+
+    def current_ability
+        @current_ability or @current_ability = Ability.new(current_user
+          )
     end
 
 end

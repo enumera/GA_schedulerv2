@@ -1,17 +1,20 @@
 class CoursesController < ApplicationController
   # GET /courses
   # GET /courses.json
-  # before_filter :authenticate
+  before_filter :authenticate
 
   def index
      
     @courses = Course.all
 
+     authorize! :index, Course
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @courses }
     end
   end
+
+  
 
   # GET /courses/1
   # GET /courses/1.json
@@ -41,6 +44,7 @@ class CoursesController < ApplicationController
   # GET /courses/1/edit
   def edit
     @course = Course.find(params[:id])
+    authorize! :edit, @course
   end
 
   # POST /courses

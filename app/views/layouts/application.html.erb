@@ -8,37 +8,47 @@
 </head>
 <body>
 <header>
+  <div class="banner">
     <%=image_tag('GA-Logo.png')%> <h1>SCHEDULER</h1>
   </header>
-  <div>
+</div>
+<%if current_user then %>
+  <div class="menu">
     <nav>
         <ul>
-          <li>
+            
             <%=link_to 'Home', root_path %>
-            <% if admin? then %>
+            <% if admin? %>
             <%=link_to 'All GA Courses', cohorts_path %>
             <%=link_to 'Courses', courses_path %>
             <%=link_to 'Lessons', lessons_path %>
+            <%=link_to 'All cohorts', cohorts_path %>
+            <%=link_to 'All staff', profiles_path %>
             <% end %>
-            <% if admin? || producer? then %>
+            <% if producer? %>
+            <%=link_to 'Courses', courses_path %>
             <%=link_to 'Your cohorts', cohorts_path %>
-            <%=link_to 'Your staff', cohorts_path %>
+            <%=link_to 'Your staff', profiles_path %>
+            <% end %>
+            <%if admin?  %>
+             <%=link_to 'Status', statuses_path %>
+              <%=link_to 'Roles', roles_path %>
+              <%=link_to 'Classrooms', classrooms_path %>
+              <%=link_to 'Locations', locations_path %>
             <% end %>
 
-          </li>
-       
-         
         </ul>
 
       </nav>
     </div>
-
+<% end %>
 <% if current_user %>
-       <p> hello, <%= current_user.email %> </p>
+       <p class="welcome_board"><b> Hello, <%= current_user.name %> </b>
        <%=link_to "Edit profile", my_profile_path %>
      
-       <%= link_to 'Logout', logout_path, method: :delete, data: {confirm: "Are you sure?"} %>
+       <%= link_to 'Logout', logout_path, method: :delete, data: {confirm: "Are you sure?"} %></p>
       <% else %>
+      <br/>
       <%= link_to 'Please sign up', signup_path %> <br />
        <%= link_to 'Please login', login_path %>
       <% end %>

@@ -1,5 +1,7 @@
-<h1>Listing classrooms</h1>
-
+<h1>List classrooms</h1>
+<%= link_to 'Add a new classroom', new_classroom_path %>
+<br />
+<div class="index_table_classroom">
 <table>
   <tr>
     <th>Name</th>
@@ -27,7 +29,7 @@
   </tr>
 <% end %>
 </table>
-
+</div>
 <br />
 
-<%= link_to 'New Classroom', new_classroom_path %>
+

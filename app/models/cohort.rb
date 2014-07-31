@@ -6,4 +6,9 @@ class Cohort < ActiveRecord::Base
   belongs_to :status
   belongs_to :location
 
+
+
+  validates :name, presence: true, uniqueness: true
+  validates :profile_ids, presence: true
+  
 end

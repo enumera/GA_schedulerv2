@@ -1,7 +1,7 @@
 class RolesController < ApplicationController
   # GET /roles
   # GET /roles.json
-  # before_filter :authenticate
+  before_filter :authenticate
   def index
     @roles = Role.all
 

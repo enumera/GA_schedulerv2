@@ -11,6 +11,16 @@
         </ul>
       </div>
     <% end %>
+      <div class="field">
+      <%= label_tag :name, "Full name" %>
+      <%= text_field_tag :name %>
+    </div>
+
+     <div class="field">
+     <%= f.label :location_id, "Nearest GA Campus" %><br />
+    <%= f.collection_select :location_id, Location.all, :id, :name %>
+   </div>
+
     <div class="field">
       <%= f.label :email %>
       <%= f.text_field :email %>

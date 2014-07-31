@@ -1,35 +1,47 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <b>Name:</b>
+  <div class = "field">
+   <span class="title">Name:</span>
   <%= @classroom.name %>
+</div>
 </p>
 
 <p>
+    <div class = "field">
   <b>Location:</b>
   <%= @classroom.location.name %>
+</div>
 </p>
 
 <p>
-  <b>Projector:</b>
+    <div class = "field">
+  <span class="title">Projector:</span>
   <%= @classroom.projector %>
+</div>
 </p>
 
 <p>
-  <b>Tables:</b>
+<div class = "field">
+  <span class="title">Number of tables:</span>
   <%= @classroom.tables %>
+    </div>
 </p>
 
 <p>
-  <b>Chairs:</b>
+  <div class = "field">
+  <b>Number of chairs:</b>
   <%= @classroom.chairs %>
+</div>
 </p>
 
 <p>
-  <b>Chillout:</b>
+  <div class = "field">
+  <b>Chillout space:</b>
   <%= @classroom.chillout %>
+</div>
 </p>
 
 
 <%= link_to 'Edit', edit_classroom_path(@classroom) %> |
-<%= link_to 'Back', classrooms_path %>
+<%= link_to '<< Back', classrooms_path %>

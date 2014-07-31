@@ -1,10 +1,15 @@
 class CohortsController < ApplicationController
   # GET /cohorts
   # GET /cohorts.json
-  
-  def index
-    @cohorts = Cohort.all
+  authorize_resource
 
+  def index
+        if current_user.role.name == "producer"
+          producer_location = current_user.location_id
+          @cohorts = Cohort.where(location_id: producer_location)
+        else
+          @cohorts = Cohort.all
+        end
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @cohorts }
@@ -14,6 +19,7 @@ class CohortsController < ApplicationController
   # GET /cohorts/1
   # GET /cohorts/1.json
   def show
+ 
     @cohort = Cohort.find(params[:id])
     @tutorials = @cohort.tutorials
     @profile = @cohort.profiles.where(role_id: 3)
@@ -30,7 +36,10 @@ class CohortsController < ApplicationController
   # GET /cohorts/new.json
   def new
     @cohort = Cohort.new
-
+    if current_user.role.name == "producer"
+      @cohort.location_id = current_user.location_id
+    end
+    
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @cohort }

@@ -1,25 +1,31 @@
-<h1>Listing statuses</h1>
-
+<h1>Object statuses</h1>
+<p>
+<%= link_to 'Add a new status', new_status_path %>
+</p>
+<div class ="index_table">
 <table>
   <tr>
-    <th>Thing</th>
-    <th>Statusname</th>
+    <th>Object</th>
+    <th>Status</th>
     <th></th>
     <th></th>
     <th></th>
   </tr>
 
 <% @statuses.each do |status| %>
+  
   <tr>
+    
     <td><%= status.thing %></td>
     <td><%= status.statusname %></td>
+    <%if admin? then %>
     <td><%= link_to 'Show', status %></td>
     <td><%= link_to 'Edit', edit_status_path(status) %></td>
     <td><%= link_to 'Destroy', status, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <% end %>
+
   </tr>
 <% end %>
 </table>
+</div>
 
-<br />
-
-<%= link_to 'New Status', new_status_path %>

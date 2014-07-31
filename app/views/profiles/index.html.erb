@@ -23,7 +23,7 @@
   
   
     <% if admin? then %>
-   
+     <td><%= link_to 'Edit', edit_profile_path(profile) %></td>
     <td><%= link_to 'Delete', profile, method: :delete, data: { confirm: 'Are you sure?' } %></td>
     <%end%>
   </tr>

@@ -18,8 +18,10 @@
     <td><%= course.outcome %></td>
     <td><%= course.status_id %></td>
     <td><%= link_to 'Show', course %></td>
+    <% if admin? %>
     <td><%= link_to 'Edit', edit_course_path(course) %></td>
     <td><%= link_to 'Destroy', course, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <% end %>
   </tr>
 <% end %>
 </table>

@@ -22,7 +22,7 @@
 
 <p>
   <b>Course:</b>
-  <%= @cohort.course_id %>
+  <%= @cohort.course.name %>
 </p>
 
 <p>
@@ -58,6 +58,8 @@
 <% end %>
 </table>
 
+<% if producer? %>
+
 Lead instructor 
 <%= @profile.first.name %>
 </br>
@@ -72,6 +74,7 @@ Students
   <p>  <%= student.name %> </p>
 <% end %>
 
+<%end%>
 
 
 <%= link_to 'Enrol', enroll_cohort_path(@cohort)%>

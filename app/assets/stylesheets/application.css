@@ -11,3 +11,179 @@
  *= require_self
  *= require_tree .
  */
+
+.banner {
+
+background-color: #000000;
+height: 150px;
+padding: 5px;
+}
+
+
+body {
+  background-color: #fff;
+  color: #333;
+  font-family: verdana, arial, helvetica, sans-serif;
+  
+}
+
+p, ol, ul, td {
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size: 13px;
+  line-height: 18px;
+}
+
+th, td {
+  padding: 2px 10px;
+  border-left: 1px solid black;
+}
+td {
+  border-left: 1px solid black;
+}
+
+td:nth-child(2n) {
+  /*background: gray;*/
+}
+
+pre {
+  background-color: #eee;
+  padding: 10px;
+  font-size: 11px;
+}
+
+a {
+  color: #000;
+  &:visited {
+    color: #666;
+  }
+  &:hover {
+    color: #fff;
+    background-color: #000;
+  }
+}
+
+div {
+  &.field, &.actions {
+    margin-bottom: 10px;
+  }
+}
+
+#notice {
+  color: green;
+}
+
+.field_with_errors {
+  padding: 2px;
+  background-color: red;
+  display: table;
+}
+
+#error_explanation {
+  width: 450px;
+  border: 2px solid red;
+  padding: 7px;
+  padding-bottom: 0;
+  margin-bottom: 20px;
+  background-color: #f0f0f0;
+  h2 {
+    text-align: left;
+    font-weight: bold;
+    padding: 5px 5px 5px 15px;
+    font-size: 12px;
+    margin: -7px;
+    margin-bottom: 0px;
+    background-color: #c00;
+    color: #fff;
+  }
+  ul li {
+    font-size: 12px;
+    list-style: square;
+  }
+}
+
+
+.banner {
+background-color:rgba(0,0,0,0.5);
+box-shadow: 11px 9px 16px #000000;
+
+height: 150px;
+width:1150px;
+  
+}
+
+.field {
+  margin-left: 5px;
+  margin-bottom: 10px;
+  width: 200px;
+  padding: 5px;
+  vertical-align: top;
+  background-color:rgba(244,244,244,0.5);
+  box-shadow: 11px 9px 16px #000000;
+  color: blue;
+}
+
+
+.index_table{
+  margin-left: 5px;
+  width: 300px;
+  padding: 5px;
+  display: inline-block;
+  vertical-align: top;
+  background-color:rgba(244,244,244,0.5);
+  box-shadow: 11px 9px 16px #000000;
+  color: green;
+   font-size: 20px;
+  line-height: 18px;
+}
+
+.index_table_classroom{
+  margin-left: 5px;
+ 
+  padding: 5px;
+  display: inline-block;
+  vertical-align: top;
+  background-color:rgba(244,244,244,0.5);
+  box-shadow: 11px 9px 16px #000000;
+  color: green;
+   font-size: 20px;
+  line-height: 18px;
+}
+.menu
+{
+  font-size: 25px;
+ 
+  margin-left: 2px;
+  margin-top:10px;
+  width: 1150px;
+  padding: 0px 2px 0 0;
+  display: inline-block;
+  vertical-align: top;
+  background-color:rgba(244,244,244,0.5);
+  box-shadow: 11px 9px 16px #000000;
+  color: black;
+}
+
+.menu a{
+
+  color: #bbc;
+}
+
+
+.menu_item {
+padding: 10px;
+
+}
+
+.welcome_board
+{
+  margin-left: 5px;
+  width: 150px;
+  padding: 5px;
+  display: inline-block;
+  vertical-align: top;
+  background-color:rgba(244,244,244,0.5);
+  box-shadow: 11px 9px 16px #000000;
+  color: black; 
+
+}
+

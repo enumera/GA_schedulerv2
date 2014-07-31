@@ -28,7 +28,7 @@ GaSchedulerv3::Application.routes.draw do
   resources :statuses
 
 
-  resources :profiles, except: [:edit]
+  resources :profiles
 
 
   resources :roles

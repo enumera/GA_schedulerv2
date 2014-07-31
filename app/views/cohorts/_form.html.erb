@@ -15,11 +15,13 @@
     <%= f.label :name %><br />
     <%= f.text_field :name %>
   </div>
+  <% if admin? %>
   <div class="field">
      <%= f.label :location_id %><br />
     <%= f.collection_select :location_id, Location.all, :id, :name %>
 
   </div>
+  <% end %>
   <div class="field">
     <%= f.label :start_date %><br />
     <%= f.date_select :start_date %>
@@ -37,12 +39,14 @@
     <%= f.collection_select :status_id, Status.where(thing: "cohort"), :id, :statusname %>
   </div>
   <div>
+
 <b> Select the lead instructor </b></br>
 <% Profile.where(role_id:3).each do |profile| %>
 <%= radio_button_tag("cohort[profile_ids][]", profile.id, @cohort.profiles.include?(profile),id: "cohort_profiles_ids_#{profile.id}") %>
 <%= label_tag(:profile, profile.name) %>
 <% end %>
 </div>
+
 <div>
 <b> Select the Teaching assistants </b>
    

@@ -1,7 +1,7 @@
 class TutorialsController < ApplicationController
   # GET /tutorials
   # GET /tutorials.json
-  # before_filter :authenticate
+  before_filter :authenticate
   def index
     @tutorials = Tutorial.all
 

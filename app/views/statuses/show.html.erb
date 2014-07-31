@@ -1,15 +1,21 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <b>Thing:</b>
+<div class = "field">
+  <b>Object:</b>
+  
   <%= @status.thing %>
+  </div>
 </p>
 
 <p>
-  <b>Statusname:</b>
+  <div class = "field">
+  <b>Status name:</b>
   <%= @status.statusname %>
+  </div>
 </p>
 
 
+
 <%= link_to 'Edit', edit_status_path(@status) %> |
-<%= link_to 'Back', statuses_path %>
+<%= link_to '<< Back', statuses_path %>
