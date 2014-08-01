@@ -1,10 +1,10 @@
-<h1>Listing lessons</h1>
-
+<h1>List of lessons</h1>
+<div class = "index_table">
 <table>
   <tr>
     <th>Name</th>
     <th>Subject</th>
-    <th>Timerequired</th>
+  
     <th>Status</th>
     <th></th>
     <th></th>
@@ -15,7 +15,7 @@
   <tr>
     <td><%= lesson.name %></td>
     <td><%= lesson.subject %></td>
-    <td><%= lesson.timerequired %></td>
+
     <td><%= lesson.status.statusname %></td>
     <td><%= link_to 'Show', lesson %></td>
     <td><%= link_to 'Edit', edit_lesson_path(lesson) %></td>
@@ -25,5 +25,5 @@
 </table>
 
 <br />
-
+</div>
 <%= link_to 'New Lesson', new_lesson_path %>

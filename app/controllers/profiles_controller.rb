@@ -36,7 +36,7 @@ class ProfilesController < ApplicationController
   # GET /profiles/1.json
   def show
     @profile = current_user
-    corhorts = Corhort.all
+    cohorts = Cohort.all
 
     respond_to do |format|
       format.html # show.html.erb

@@ -1,5 +1,5 @@
 <p id="notice"><%= notice %></p>
-
+<div class="index_table">
 <p>
   <b>Name:</b>
   <%= @course.name %>
@@ -19,7 +19,9 @@
   <b>Status:</b>
   <%= @course.status.statusname %>
 </p>
-
+</div>
+</br>
+</br>
 
 <% if admin? %>
 <%= link_to 'Edit', edit_course_path(@course) %> |

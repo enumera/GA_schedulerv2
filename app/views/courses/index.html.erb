@@ -1,4 +1,4 @@
-<h1>Listing courses</h1>
+<h1>List of GA courses</h1>
 <div class="index_table">
 <table>
   <tr>
@@ -16,7 +16,7 @@
     <td><%= course.name %></td>
     <td><%= course.description %></td>
     <td><%= course.outcome %></td>
-    <td><%= course.status_id %></td>
+    <td><%= course.status.statusname %></td>
     <td><%= link_to 'Show', course %></td>
     <% if admin? %>
     <td><%= link_to 'Edit', edit_course_path(course) %></td>

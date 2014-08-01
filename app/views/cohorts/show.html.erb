@@ -1,5 +1,5 @@
 <p id="notice"><%= notice %></p>
-
+<div class = "index_table">
 <p>
   <b>Name:</b>
   <%= @cohort.name %>
@@ -31,14 +31,14 @@
 </p>
 <% end %>
 
-
+<% if producer? || admin? || instructor? || teaching_assistant? %>
 <table>
   <tr>
     <th>Name</th>
     <% if admin? || producer? || instructor? %>
-    <th>Status</th>
-    <th>Timerquired</th>
-    <th>Cohort</th>
+ 
+    <th>Duration</th>
+   
     <% end %>
     <th>Subject</th>
     <th></th>
@@ -50,9 +50,9 @@ Classes:
   <tr>
     <td><%= tutorial.name %></td>
     <% if producer? || instructor? %>
-    <td><%= tutorial.status.statusname %></td>
+ 
     <td><%= tutorial.timerquired %></td>
-    <td><%= tutorial.cohort.name %></td>
+  
     <td><%= tutorial.subject %></td>
     <td><%= link_to 'Show', tutorial %></td>
     <% if producer? %>
@@ -64,13 +64,11 @@ Classes:
 <% end %>
 </table>
 
-<% if producer? || admin? || instructor? || teaching_assistant? %>
-
-Lead instructor :
+<h5> Lead instructor :</h5>
 <%= @profile.first.name %>
 </br>
 
-Teaching Assistants:
+<h5>Teaching Assistants:</h5>
 <% @tas.each do |ta| %>
    <%= ta.name %> 
 <% end %>
@@ -80,7 +78,7 @@ Students:
 <% @students.each do |student| %>
   <%= student.name %> 
 <% end %>
-
+<br />
 <% end %>
 
 <% if student? %>
@@ -91,5 +89,7 @@ Students:
 <%= link_to 'Edit', edit_cohort_path(@cohort) %> |
 <% end %>
 <br />
+</div>
+</br>
 <%= link_to '<< Back', cohorts_path %>
 

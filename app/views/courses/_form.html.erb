@@ -10,20 +10,20 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
+<div class "index_table_course">
+  <div>
     <%= f.label :name %><br />
     <%= f.text_field :name %>
   </div>
-  <div class="field">
+  <div>
     <%= f.label :description %><br />
     <%= f.text_area :description %>
   </div>
-  <div class="field">
+  
     <%= f.label :outcome %><br />
     <%= f.text_area :outcome %>
-  </div>
-  <div class="field">
+  
+  <div>
     <%= f.label :status_id %><br />
     <%= f.collection_select :status_id, Status.where(thing: "course"), :id, :statusname %>
   </div>
@@ -34,7 +34,7 @@
 <% end %>
 
   </div>
-
+</div>
 
 
   <div class="actions">

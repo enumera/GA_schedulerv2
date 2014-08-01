@@ -22,11 +22,11 @@ padding: 5px;
 
 body {
   background-color: #fff;
-  color: #111;
+  color: #eee;
   font-family: verdana, arial, helvetica, sans-serif;
    background: url("ga21.jpg") ;
    background-size: 100%;
-   background-repeat: no-repeat;
+
   
  
 }
@@ -120,7 +120,7 @@ banner a {
     color: #666;
   }
   &:hover {
-    color: #fff;
+    color: #000;
     background-color: #000;
   }
 }
@@ -150,6 +150,18 @@ banner a {
   line-height: 18px;
 }
 
+.index_table_course{
+  margin-left: 5px;
+  
+  padding: 5px;
+  display: block;
+  vertical-align: top;
+  background-color:rgba(244,244,244,0.5);
+  box-shadow: 11px 9px 16px #000000;
+  color:  #111;
+   font-size: 20px;
+  line-height: 18px;
+}
 .index_table_classroom{
   margin-left: 5px;
  
@@ -200,4 +212,15 @@ padding: 10px;
   color: black; 
 
 }
+a {
+  color: #111;
+  &:visited {
+    color: #666;
+  }
+  &:hover {
+    color: #fff;
+    background-color: #000;
+  }
+}
+textarea {width:150px;height:100px;padding:5px;} 
 
