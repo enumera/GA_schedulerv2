@@ -56,17 +56,17 @@ class CohortsController < ApplicationController
   # POST /cohorts
   # POST /cohorts.json
   def create
-  
+ 
 
     @cohort = Cohort.new(params[:cohort])
     course = Course.find(params[:cohort][:course_id])
     
     course.lessons.all.each do |lesson|
-      t1 = Tutorial.create(name: lesson.name, status_id: lesson.status_id)
+      t1 = Tutorial.create(name: lesson.name, status_id: lesson.status_id, location_id: current_user.location_id)
       @cohort.tutorials << t1
     end
     @cohort.location_id = current_user.location_id
-    binding.pry
+    
     respond_to do |format|
       if @cohort.save
         format.html { redirect_to @cohort, notice: 'Cohort was successfully created.' }

@@ -23,7 +23,7 @@
             <%=link_to 'Courses', courses_path %>
             <%=link_to 'Lessons', lessons_path %>
             <%=link_to 'All cohorts', cohorts_path %>
-             <%=link_to 'All tutorials', cohorts_path %>
+             <%=link_to 'All tutorials', tutorials_path %>
             <%=link_to 'All staff', profiles_path %>
             <% end %>
             <% if producer? %>
@@ -54,6 +54,7 @@
 <% if current_user %>
        <p class="welcome_board"><b> Hello, <%= current_user.name %> </b>
        <%=link_to "Edit profile", my_profile_path %>
+       <%= image_tag current_user.picture.thumb %>
      
        <%= link_to 'Logout', logout_path, method: :delete, data: {confirm: "Are you sure?"} %></p>
       <% else %>

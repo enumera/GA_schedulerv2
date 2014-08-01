@@ -4,7 +4,7 @@
   <tr>
     <th>Name</th>
     <th>Status</th>
-    <th>Timerquired</th>
+    <th>Duration</th>
     <th>Cohort</th>
     <th>Subject</th>
     <th></th>
@@ -15,7 +15,7 @@
 <% @tutorials.each do |tutorial| %>
   <tr>
     <td><%= tutorial.name %></td>
-    <td><%= tutorial.status_id %></td>
+    <td><%= tutorial.status.statusname %></td>
     <td><%= tutorial.timerquired %></td>
     <td><%= tutorial.cohort_id %></td>
     <td><%= tutorial.subject %></td>

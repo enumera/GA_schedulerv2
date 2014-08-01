@@ -37,7 +37,7 @@ class TutorialsController < ApplicationController
   # GET /tutorials/1/edit
   def edit
     @tutorial = Tutorial.find(params[:id])
-    binding.pry
+  
     current_user_location_id = current_user.location_id
     @classrooms = Classroom.where(location_id: :current_user_location_id)
   end
