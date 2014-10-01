@@ -117,12 +117,12 @@ def enroll
   
     
     if @cohort.profiles.include? current_user
-      redirect_to cohorts_path, notice: 'You are already signed on to this course'
+      redirect_to cohort_path, notice: 'You are already signed on to this course'
      
     else
       @cohort.profiles << current_user
        @cohort.save
-      redirect_to cohorts_path, notice: 'You have successfully signed on to this course'
+      redirect_to cohort_path, notice: 'You have successfully signed on to this course'
       
     end
   end

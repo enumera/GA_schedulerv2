@@ -49,7 +49,7 @@ Classes:
 <% @tutorials.each do |tutorial| %>
   <tr>
     <td><%= tutorial.name %></td>
-    <% if producer? || instructor? %>
+    <% if producer? || instructor? || teaching_assistant?%>
  
     <td><%= tutorial.timerquired %></td>
   

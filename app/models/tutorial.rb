@@ -1,4 +1,4 @@
-class Tutorial < ActiveRecord::Base
+jclass Tutorial < ActiveRecord::Base
   attr_accessible :cohort_id, :name, :status_id, :subject, :timerquired, :classroom_id, :location_id
     
     belongs_to :cohort

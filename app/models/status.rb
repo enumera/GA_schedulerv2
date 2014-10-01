@@ -4,5 +4,5 @@ class Status < ActiveRecord::Base
   has_many :courses
   has_many :lessons
 
- validates :thing, presence: true, uniqueness: true
+ validates :statusname, presence: true, uniqueness: true
 end
